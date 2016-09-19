@@ -29,26 +29,13 @@ public class Calculo {
         res += "<br/>Cargo: " + funcionario.getCargo();
         res += "<br/>Salário Bruto: " + df.format(funcionario.getSlbruto());
         res += "<br/>Dedução IR: " + getDeducao(salarioBruto);
-        res += "<br/>Salário Líquido: " + df.format(salario - deducao);
+        res += "<br/>Salário Líquido: " + df.format(salarioBruto - getDeducao(salarioBruto));
         
-        request.setAttribute("resultado", res);
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+        return res;
         }
     
 
-    private int getTempoServico(String dtAdmissao) {
-        try {
-            Date dt = new SimpleDateFormat("dd/MM/yyyy").parse(dtAdmissao);
-            long diff = System.currentTimeMillis() - dt.getTime();
-            double indice = 1000 * 60 * 60 * 24 * 365.25;
-            return (int) (diff / indice);
-        } catch (ParseException ex) {
-            Logger.getLogger(IrrfSV.class.getName()).log(Level.SEVERE, null, ex);
-            return 0;
-        }
-    }
-
-     private double getDeducao(double salario) {
+     static private double getDeducao(double salario) {
         double deducao;
 
         if (salario <= 1903.98) {

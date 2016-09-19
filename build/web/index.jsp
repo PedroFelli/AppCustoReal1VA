@@ -23,7 +23,7 @@
                     <option value="secretario">Siretor</option>
                 </select><br/>
                 Salario bruto<br/> <input type="text" name="slbruto" size="10"/><br/>
-                Dias trabalhados<br/> <input type="text" name="slbruto" size="10"/><br/>
+                Dias trabalhados<br/> <input type="text" name="diatb" size="10"/><br/>
                 Valor do vale transporte<br/> <input type="text" name="vltrans" size="10"/><br/>
                 Valor do vale refeição<br/> <input type="text" name="vlref" size="10"/><br/>
                 Outros beneficios<br/> <input type="text" name="otrbf" size="10"/><hr/>
