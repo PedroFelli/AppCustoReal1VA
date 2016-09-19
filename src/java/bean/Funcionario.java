@@ -18,6 +18,7 @@ public class Funcionario {
     private double vltrans;
     private double vlref;
     private double otrbf;
+    private double deducao = 0;
 
     public String getNome() {
         return nome;
@@ -73,6 +74,14 @@ public class Funcionario {
 
     public void setOtrbf(double otrbf) {
         this.otrbf = otrbf;
+    }
+
+    public double getDeducao() {
+        return deducao;
+    }
+
+    public void setDeducao(double deducao) {
+        this.deducao = deducao;
     }
     
 }

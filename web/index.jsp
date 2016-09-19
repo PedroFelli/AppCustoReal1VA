@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Imc</title>
     </head>
-    <body bgcolor="gray">
+    <body bgcolor="33CCFF">
         <h1>Custo real</h1>
         <fieldset>
             <legend>Digite os dados do funcionario</legend>

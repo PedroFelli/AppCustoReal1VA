@@ -23,7 +23,14 @@ public class RealSV extends HttpServlet{
         funcionario.setNome(request.getParameter("nome"));
         funcionario.setCargo(request.getParameter("cargo"));
         funcionario.setSlbruto(Double.parseDouble("slbruto"));
-        // falta terminar essa parte 
+        funcionario.setDiatb(Double.parseDouble("diatb"));
+        funcionario.setVltrans(Double.parseDouble("vltrans"));
+        funcionario.setVlref(Double.parseDouble("vlref"));
+        funcionario.setOtrbf(Double.parseDouble("otrbf"));
+        
+
+        request.SetAttribute("resultado", Calculo.getSituacao(funcionario));
+        request.getRequestDispatcher("index.jsp").forward(request, response);
     }
             
     
