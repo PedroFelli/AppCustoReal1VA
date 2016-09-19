@@ -1,4 +1,5 @@
 package util;
+
 import bean.Funcionario;
 import java.text.DecimalFormat;
 import java.text.ParseException;
@@ -12,30 +13,35 @@ import java.util.logging.Logger;
  * @author pedro.amaral
  */
 public class Calculo {
-      	
-        public static DecimalFormat df = new DecimalFormat("#,##0.000");
-      
-         
-        public static String getSituacao(Funcionario funcionario) {
-      
-            
-            
+
+    public static DecimalFormat df = new DecimalFormat("#,##0.00");
+
+    public static String getSituacao(Funcionario funcionario) {
         double salarioBruto = funcionario.getSlbruto();
-        
-        
         String res;
 
-        res =  "Funcionário: " + funcionario.getNome();
-        res += "<br/>Cargo: " + funcionario.getCargo();
+        res = "Funcionário: " + funcionario.getNome();
+        res += "<br/>Cargo: " + funcionario.getCargo().toUpperCase();
         res += "<br/>Salário Bruto: " + df.format(funcionario.getSlbruto());
-        res += "<br/>Dedução IR: " + getDeducao(salarioBruto);
+        res += "<br/>Dedução IR: " + df.format(getDeducao(salarioBruto));
         res += "<br/>Salário Líquido: " + df.format(salarioBruto - getDeducao(salarioBruto));
+        res += "<br/>FGTS: " + df.format(salarioBruto - getFGTS(salarioBruto));
+        res += "<br/>Outros Beneficios: " + funcionario.getOtrbf();
+        res += "<br/>Vale refeição: " + getRefeicao(funcionario.getDiatb(), funcionario.getVlref());
+        res += "<br/>Vale transporte: " + getTrans(funcionario.getDiatb(), funcionario.getVltrans());
+        res += "<br/>Provisão 13º salario: " + df.format(getProv13(salarioBruto));
+        res += "<br/>Provisão de férias: " + df.format(getProv13(salarioBruto));
+        res += "<br/>Provisão 1/3 ferias: " + df.format(getProv13(salarioBruto)/3);
+        res += "<br/>Provisão de avisio prévio: " + df.format(getProv13(salarioBruto));
+        
+        
+
+        
         
         return res;
-        }
-    
+    }
 
-     static private double getDeducao(double salario) {
+    static private double getDeducao(double salario) {
         double deducao;
 
         if (salario <= 1903.98) {
@@ -52,9 +58,31 @@ public class Calculo {
 
         return deducao;
     }
-   
 
+    static private double getFGTS(double salario) {
+        double fgts;
+        fgts = (salario * 0.8);
+        return fgts;
+    }
+    
+    static private double getINSS(double salario){
+        double inss;
+        inss = (salario* 0.8);
+        return inss;
+    }
 
-
-     
+    static private double getRefeicao(double diaTb, double vlRefe){
+        double vlRefei = (diaTb * vlRefe);
+        return vlRefei;
+    }
+    
+    static private double getTrans(double diaTb, double vlTrans){
+        double vlTran = (diaTb * vlTrans) * 2;
+        return vlTran;
+    }
+    
+    static private double getProv13(double salario){
+        double prov13 = salario / 12;
+        return prov13;
+    }
 }
