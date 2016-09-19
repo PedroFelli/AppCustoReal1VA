@@ -20,7 +20,7 @@
                 Cargo<br/> <select name="cargo">
                     <option value="professor">Professor</option>
                     <option value="diretor">Diretor</option>
-                    <option value="secretario">Siretor</option>
+                    <option value="secretario">Secretario</option>
                 </select><br/>
                 Salario bruto<br/> <input type="text" name="slbruto" size="10"/><br/>
                 Dias trabalhados<br/> <input type="text" name="diatb" size="10"/><br/>

@@ -24,8 +24,9 @@ public class Calculo {
         res += "<br/>Cargo: " + funcionario.getCargo().toUpperCase();
         res += "<br/>Salário Bruto: " + df.format(funcionario.getSlbruto());
         res += "<br/>Dedução IR: " + df.format(getDeducao(salarioBruto));
-        res += "<br/>Salário Líquido: " + df.format(salarioBruto - getDeducao(salarioBruto));
-        res += "<br/>FGTS: " + df.format(salarioBruto - getFGTS(salarioBruto));
+        res += "<br/>Salário Líquido: " + df.format(salarioBruto - getDeducao(salarioBruto) - getINSS(salarioBruto));
+        res += "<br/>FGTS: " + (getFGTS(funcionario.getSlbruto()));
+        res += "<br/>INSS: " + (getINSS(funcionario.getSlbruto()));
         res += "<br/>Outros Beneficios: " + funcionario.getOtrbf();
         res += "<br/>Vale refeição: " + getRefeicao(funcionario.getDiatb(), funcionario.getVlref());
         res += "<br/>Vale transporte: " + getTrans(funcionario.getDiatb(), funcionario.getVltrans());
@@ -61,13 +62,13 @@ public class Calculo {
 
     static private double getFGTS(double salario) {
         double fgts;
-        fgts = (salario * 0.8);
+        fgts = (salario * 8)/100;
         return fgts;
     }
     
     static private double getINSS(double salario){
         double inss;
-        inss = (salario* 0.8);
+        inss = (salario * 9)/100;
         return inss;
     }
 
