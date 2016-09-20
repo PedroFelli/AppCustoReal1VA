@@ -3,7 +3,7 @@
     Created on : 17/09/2016, 11:02:24
     Author     : pedro.amaral
 --%>
-
+x
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -11,7 +11,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Imc</title>
     </head>
-    <body bgcolor="33CCFF">
+    <body bgcolor="white" >
+
         <h1>Custo real</h1>
         <fieldset>
             <legend>Digite os dados do funcionario</legend>
