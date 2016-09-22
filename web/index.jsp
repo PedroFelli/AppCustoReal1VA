@@ -3,16 +3,26 @@
     Created on : 17/09/2016, 11:02:24
     Author     : pedro.amaral
 --%>
-x
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Imc</title>
     </head>
-    <body bgcolor="white" >
-
+    <style>
+        div {
+            width: 370px;
+            padding: 10px;
+            border: 5px solid gray;
+            margin: 0; 
+            background-color: lightblue;
+        }   
+    </style>
+    <body bgcolor="#DDDDDD" >
+        <div>
         <h1>Custo real</h1>
         <fieldset>
             <legend>Digite os dados do funcionario</legend>
@@ -35,6 +45,7 @@ x
         <fieldset>
             ${resultado}
         </fieldset>
-    </body>
+     </body>
+     </div>
 </html>
 

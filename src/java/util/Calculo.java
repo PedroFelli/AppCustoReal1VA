@@ -34,13 +34,15 @@ public class Calculo {
         res += "<br/>Provisão de férias: " + df.format(getProv13(salarioBruto));
         res += "<br/>Provisão 1/3 ferias: " + df.format(getProv13(salarioBruto)/3);
         res += "<br/>Provisão de avisio prévio: " + df.format(getProv13(salarioBruto));
-        
-        
-
-        
-        
+        res += "<br/> Gasto total da empresta com o: " + funcionario.getNome() + " ," ;
+        res += ""  + df.format((funcionario.getSlbruto())+(getDeducao(salarioBruto))+(getFGTS(funcionario.getSlbruto()))
+                +(getINSS(funcionario.getSlbruto()))+ funcionario.getOtrbf()+ getRefeicao(funcionario.getDiatb(), funcionario.getVlref()) 
+                + getTrans(funcionario.getDiatb(), funcionario.getVltrans())+ getProv13(salarioBruto)+ getProv13(salarioBruto)+ getProv13(salarioBruto)
+                +(getProv13(salarioBruto)/3)) + "R$ .";
         return res;
     }
+    
+       
 
     static private double getDeducao(double salario) {
         double deducao;
